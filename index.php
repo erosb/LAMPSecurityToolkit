@@ -122,6 +122,9 @@ function renderform() {
 			<div id="testlist">
 				<p>Please select the tests you wish to run!</p>
 			</div>
+			<div id="resultlist">
+				
+			</div>
 		</div>
 		<script type="text/javascript" src="javascript/httpclient.js"></script>
 		<script type="text/javascript" src="javascript/tester.js"></script>

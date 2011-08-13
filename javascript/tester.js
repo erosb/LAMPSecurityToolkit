@@ -7,6 +7,10 @@ LAMPT = {
 	SKIPPED: 3,
 	tests: {},
 	loadTests: function() {
+		if (JSON == undefined) {
+			alert('This browser does not support native JSON and is therefore unsupported!');
+		}
+		
 		var http = new HTTPClient();
 		http.setMethod(http.GET);
 		http.setURL('?action=gettests');
@@ -58,6 +62,8 @@ LAMPT = {
 				var nametext;
 				var desctd;
 				var desctext;
+				var morea;
+				var moretext;
 				for (var testid in LAMPT.tests[category]) {
 					if (LAMPT.tests[category].hasOwnProperty(testid)) {
 						tr = document.createElement('tr');
@@ -82,8 +88,14 @@ LAMPT = {
 						tr.appendChild(nametd);
 
 						desctd = document.createElement('td');
-						desctext = document.createTextNode(LAMPT.tests[category][testid].description);
+						desctext = document.createTextNode(LAMPT.tests[category][testid].description + ' ');
 						desctd.appendChild(desctext);
+						morea = document.createElement('a');
+						morea.target='_blank';
+						morea.href=LAMPT.tests[category][testid].link;
+						moretext = document.createTextNode('Read more!');
+						morea.appendChild(moretext);
+						desctd.appendChild(morea);
 						tr.appendChild(desctd);
 						
 						table.appendChild(tr);

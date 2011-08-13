@@ -29,7 +29,7 @@ class DangerousPHPFunctionsTest extends SecurityTest {
 	 * @return string
 	 */
 	function getDescription() {
-		return 'Checks, if potentially dangerous PHP functions are available';
+		return 'Checks, if potentially dangerous PHP functions are available.';
 	}
 	/**
 	 * Returns the link to the details page of this issue.
