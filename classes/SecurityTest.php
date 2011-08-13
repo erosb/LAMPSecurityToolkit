@@ -13,26 +13,40 @@ class SecurityTest {
 	 * 
 	 * @return string
 	 */
-	abstract public function getName();
-	
+	function getName() {
+		return '';
+	}
+	/**
+	 * Return the category name of the test
+	 * @return string
+	 */
+	function getCategory() {
+		return '';
+	}
 	/**
 	 * Returns the detailed description of this test.
 	 * 
 	 * @return string
 	 */
-	function getDescription();
-	
+	function getDescription() {
+		return '';
+	}
 	/**
 	 * Returns the link to the details page of this issue.
 	 * 
 	 * @return string
 	 */
-	function getLink();
-	
+	function getLink() {
+		return '';
+	}
 	/**
 	 * Run the test and return the result.
 	 * 
+	 * @param array $params
 	 * @return SecurityTestResult
 	 */
-	function run();
+	function run($params = array()) {
+		$result = &new SecurityTestResult();
+        return $result;
+	}
 }

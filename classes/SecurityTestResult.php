@@ -93,4 +93,23 @@ class SecurityTestResult {
 	function getDescription() {
 		return $this->description;
 	}
+	/**
+	 * Convert test result to JSON. Doesn't work perfectly without the built-in JSON module, but it does the job
+	 * good enough.
+	 * 
+	 * @return string
+	 */
+	function toJSON() {
+		$json = '';
+		if (function_exists('json_encode')) {
+			$json = json_encode(array(
+				'code' => $this->getCode(),
+				'description' => $this->getDescription()
+			));
+		} else {
+			$json .= '{code:' . $this->getCode() . ',';
+			$json .= 'description:"' . addslashes($this->getDescription()) . '"}';
+		}
+		return $json;
+	}
 }
