@@ -54,10 +54,12 @@ class RemoteURLIncludeTest extends SecurityTest {
 		} else {
 			if (ini_get('allow_url_include') == '1') {
 				$result->setCode(SecurityTestResult::WARNING);
-				$result->setDescription('<p>Remote file inclusion is enabled! This can be used with poorly written ' . 
-						'code to execute malicious code from remote servers. Unless you use some edge case software ' .
-						'(like PHP/Java Bridge) disable including remote files by setting the following option in ' .
-						'php.ini: <code>allow_url_include = off</code></p>');
+				$result->setDescription('<p><a ' . 
+						'href="http://www.php.net/manual/en/filesystem.configuration.php#ini.allow-url-include">allow_url_include</a> ' . 
+						'is enabled! This can be used with poorly written programs to execute malicious code from ' . 
+						'remote servers. Unless you use some edge case software (like PHP/Java Bridge) disable ' . 
+						'including remote files by setting the following option in php.ini: <code>allow_url_include ' .
+						'= off</code></p>');
 			} else {
 				$result->setCode(SecurityTestResult::OK);
 			}
