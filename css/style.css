@@ -41,4 +41,27 @@ table {
 
 table th, table td {
 	border:1px solid black;
+	min-height:18px;
+	padding:2px;
+	vertical-align: middle;
+}
+
+table th.cb, table td.cb {
+	width:18px;
+}
+
+.unknown {
+	background-color:#d0d0d0;
+}
+.ok {
+	background-color:#00FB1F;
+}
+.warning {
+	background-color:#FFFF00;
+}
+.error {
+	background-color:#F83838;
+}
+.unknown {
+	background-color:#FFA500;
 }

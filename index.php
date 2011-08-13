@@ -104,6 +104,7 @@ if (array_key_exists('action', $_GET)) {
 }
 
 function renderform() {
+	header('Content-Type:text/html; charset=utf-8');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu">
@@ -125,6 +126,7 @@ function renderform() {
 			<div id="resultlist">
 				
 			</div>
+			<p>Legend: + - OK | W - Warning | E - Error | S - Skipped | ? - Unknown</p> 
 		</div>
 		<script type="text/javascript" src="javascript/httpclient.js"></script>
 		<script type="text/javascript" src="javascript/tester.js"></script>
