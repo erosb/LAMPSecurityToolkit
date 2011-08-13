@@ -180,7 +180,9 @@ LAMPT = {
 					break;
 			}
 			var desc = document.getElementById('desc-' + LAMPT.currentTest);
-			desc.innerHTML = desc.innerHTML + '<hr />' + result.description;
+			if (result.description != '') {
+				desc.innerHTML = desc.innerHTML + '<hr />' + result.description;
+			}
 		} catch (e) {
 		}
 		LAMPT.nextTest();
