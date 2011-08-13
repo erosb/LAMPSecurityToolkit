@@ -62,6 +62,8 @@ class DangerousPHPFunctionsTest extends SecurityTest {
 			foreach ($dfunctions as $key => $value) {
 				if (!$value) {
 					unset($dfunctions[$key]);
+				} else {
+					$dfunctions[$key] = trim($value);
 				}
 			}
 			$rfunctions = array();
