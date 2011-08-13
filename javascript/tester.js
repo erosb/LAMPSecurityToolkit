@@ -179,7 +179,7 @@ LAMPT = {
 					break;
 			}
 			var desc = document.getElementById('desc-' + LAMPT.currentTest);
-			desc.innerHTML = desc.innerHTML + '<p>' + result.description + '</p>';
+			desc.innerHTML = desc.innerHTML + result.description;
 		} catch (e) {
 		}
 		LAMPT.nextTest();

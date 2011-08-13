@@ -59,20 +59,29 @@ class DangerousPHPFunctionsTest extends SecurityTest {
 
 			$afunctions = get_defined_functions();
 			$dfunctions = explode(',', ini_get('disable_functions'));
+			foreach ($dfunctions as $key => $value) {
+				if (!$value) {
+					unset($dfunctions[$key]);
+				}
+			}
 			$rfunctions = array();
 			foreach ($functionlist as $function) {
 				if (in_array($function, $afunctions['internal']) &&
 						!in_array($function, $dfunctions) &&
 						is_callable($function)) {
-					$rfunctions[] = '<a href="http://php.net/' . $function . '"><code>' . $function . '()</code></a>';
+					$rfunctions[$function] = '<a href="http://php.net/' . $function . '"><code>' . $function .
+						'()</code></a>';
 				}
 			}
 			if (!count($rfunctions)) {
 				$result->setCode(SecurityTestResult::OK);
 			} else {
 				$result->setCode(SecurityTestResult::WARNING);
-				$result->setDescription('Some functions, that may be dangerous are available for execution. ' .
-						'Check, if they are needed and disable them, if applicable: ' . implode(', ', $rfunctions));
+				$disablefunctions = array_merge(array_keys($rfunctions), $dfunctions);
+				$result->setDescription('<p>Some functions, that may be dangerous are available for execution. ' .
+						'Check, if they are needed and disable them, if applicable: ' . implode(', ', $rfunctions) .
+						'</p><p>You can disable them by adding the following option to php.ini: ' . 
+						'<code>disable_functions = ' . implode(', ', $disablefunctions) . '</p>');
 			}
 		}
         return $result;
