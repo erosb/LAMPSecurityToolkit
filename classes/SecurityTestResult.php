@@ -32,12 +32,12 @@ class SecurityTestResult {
 	 * Result code for this test.
 	 * @var integer
 	 */
-	protected $code = -1;
+	var $code = -1;
 	/**
 	 * Detailed description for this result
 	 * @var string
 	 */
-	protected $description = '';
+	var $description = '';
 	/**
 	 * Set one of the following codes:
 	 * 
@@ -49,7 +49,7 @@ class SecurityTestResult {
 	 * @param integer $code
 	 * @return SecurityTestResult
 	 */
-	public function setCode($code) {
+	function setCode($code) {
 		switch ($code) {
 			case SecurityTestResult::OK:
 			case SecurityTestResult::WARNING:
@@ -70,7 +70,7 @@ class SecurityTestResult {
 	 * 
 	 * @return integer
 	 */
-	public function getCode() {
+	function getCode() {
 		return $this->code;
 	}
 	/**
@@ -79,7 +79,7 @@ class SecurityTestResult {
 	 * @param string $description
 	 * @return SecurityTestResult
 	 */
-	public function setDescription($description) {
+	function setDescription($description) {
 		if (is_string($description)) {
 			$this->description = $description;
 		}
@@ -90,7 +90,7 @@ class SecurityTestResult {
 	 * 
 	 * @return string
 	 */
-	public function getDescription() {
+	function getDescription() {
 		return $this->description;
 	}
 }

@@ -7,7 +7,7 @@
  * @copyright 2011 János Pásztor All rights Reserved
  * @license https://github.com/janoszen/LAMPSecurityToolkit/wiki/License
  */
-abstract class SecurityTest {
+class SecurityTest {
 	/**
 	 * Get the short name of the tests.
 	 * 
@@ -20,19 +20,19 @@ abstract class SecurityTest {
 	 * 
 	 * @return string
 	 */
-	abstract public function getDescription();
+	function getDescription();
 	
 	/**
 	 * Returns the link to the details page of this issue.
 	 * 
 	 * @return string
 	 */
-	abstract public function getLink();
+	function getLink();
 	
 	/**
 	 * Run the test and return the result.
 	 * 
 	 * @return SecurityTestResult
 	 */
-	abstract public function run();
+	function run();
 }
