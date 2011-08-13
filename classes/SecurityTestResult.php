@@ -2,6 +2,7 @@
 
 /**
  * This class represents a test result.
+ * This code is PHP 4 compatible, therefore all OOP declarations are missing.
  * 
  * @author Janos Pasztor <net@janoszen.hu>
  * @copyright 2011 János Pásztor All rights Reserved
