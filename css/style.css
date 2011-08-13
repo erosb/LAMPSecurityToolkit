@@ -50,6 +50,10 @@ table th.cb, table td.cb {
 	width:18px;
 }
 
+table th.name, table td.name {
+	width:200px;
+}
+
 .unknown {
 	background-color:#d0d0d0;
 }
@@ -64,4 +68,9 @@ table th.cb, table td.cb {
 }
 .unknown {
 	background-color:#FFA500;
+}
+
+hr {
+	border:1px solid black;
+	margin-bottom:10px;
 }

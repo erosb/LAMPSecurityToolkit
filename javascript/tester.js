@@ -48,6 +48,7 @@ LAMPT = {
 				tr.appendChild(emptyth);
 
 				var testnameth = document.createElement('th');
+				testnameth.className='name';
 				var testnamethtext = document.createTextNode('Name');
 				testnameth.appendChild(testnamethtext);
 				tr.appendChild(testnameth);
@@ -101,7 +102,7 @@ LAMPT = {
 						morea = document.createElement('a');
 						morea.target='_blank';
 						morea.href=LAMPT.tests[category][testid].link;
-						moretext = document.createTextNode('Read more!');
+						moretext = document.createTextNode('Read more »');
 						morea.appendChild(moretext);
 						descp.appendChild(morea);
 						desctd.appendChild(descp);
@@ -179,7 +180,7 @@ LAMPT = {
 					break;
 			}
 			var desc = document.getElementById('desc-' + LAMPT.currentTest);
-			desc.innerHTML = desc.innerHTML + result.description;
+			desc.innerHTML = desc.innerHTML + '<hr />' + result.description;
 		} catch (e) {
 		}
 		LAMPT.nextTest();
