@@ -52,7 +52,7 @@ class RemoteURLIncludeTest extends SecurityTest {
 			$result->setCode(SecurityTestResult::SKIPPED);
 			$result->setDescription('ini_get() is required to run this test.');
 		} else {
-			if (ini_get('allow_url_include') == '1') {
+			if (ini_get('allow_url_include')) {
 				$result->setCode(SecurityTestResult::WARNING);
 				$result->setDescription('<p><a ' . 
 						'href="http://www.php.net/manual/en/filesystem.configuration.php#ini.allow-url-include">allow_url_include</a> ' . 
