@@ -81,7 +81,7 @@ class DangerousPHPFunctionsTest extends SecurityTest {
 				$result->setDescription('<p>Some functions, that may be dangerous are available for execution. ' .
 						'Check, if they are needed and disable them, if applicable: ' . implode(', ', $rfunctions) .
 						'</p><p>You can disable them by adding the following option to php.ini: ' . 
-						'<code>disable_functions = ' . implode(', ', $disablefunctions) . '</p>');
+						'<code>disable_functions = ' . implode(', ', $disablefunctions) . '</code></p>');
 			}
 		}
         return $result;
