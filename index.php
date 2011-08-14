@@ -29,7 +29,7 @@ function loaddir($dir) {
 					}
 				}
 			}
-		}
+		} 
 		closedir($dh);
 	}
 }
@@ -89,7 +89,40 @@ function skiptest($test, $description = '') {
 	echo($result->toJSON());
 }
 
+function run_all_tests() {
+    foreach (get_declared_classes() as $testclass) {
+        if (is_subclass_of($testclass, 'SecurityTest')) {
+            eval('$testinst = &new ' . $testclass . '();');
+            $result = $testinst->run();
+            echo $testinst->getName() . ': ';
+            switch ($result->getCode()) {
+                case SecurityTestResult::OK:
+                    echo "\033[32;1m OK \033[0m";
+                    break;
+                case SecurityTestResult::SKIPPED: case SecurityTestResult::UNKNOWN:
+                    echo "\033[36m SKIPPED \033[0m";
+                    break;
+                case SecurityTestResult::WARNING:
+                    echo "\033[33m WARNING \033[0m";
+                    break;
+                case SecurityTestResult::CRITICAL:
+                    echo "\033[31m CRIRICAL \033[0m";
+                default:
+                    echo "\033[31m UNKNOWN RESULT CODE: " . $result->getCode() . " \033[0m";
+            }
+            echo "\t" . strip_tags($result->getDescription()) . PHP_EOL;
+        }
+    }
+}
+
 init();
+
+// executing all tests if the app is started from CLI
+if (PHP_SAPI === 'cli') {
+    run_all_tests();
+    return;
+}
+
 if (array_key_exists('action', $_GET)) {
 	switch ($_GET['action']) {
 		case 'gettests':
